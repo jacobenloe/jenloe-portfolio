@@ -1,0 +1,1 @@
+document.getElementById("year")?.replaceChildren(document.createTextNode(String(new Date().getFullYear())));
