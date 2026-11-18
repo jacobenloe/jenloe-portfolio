@@ -1,10 +1,10 @@
-// Shop for enloe.net — loads products.json, renders cards, cart in localStorage.
+// Shop for enloe.net. Loads products.json, renders cards, cart in localStorage.
 // No prices or payment links are invented here: a product with
 // price_cents === null or stripe_payment_link === "" is not purchasable,
 // and checkout stays disabled until those are added to products.json.
 
 const CART_KEY = "enloe-shop-cart-v1";
-const CHECKOUT_DISABLED_TEXT = "Checkout opens once Stripe payment links + prices are added — send Jacob a photo request meanwhile";
+const CHECKOUT_DISABLED_TEXT = "Checkout opens once Stripe payment links and prices are added. Email me about a shirt in the meantime.";
 
 let products = [];
 
@@ -22,7 +22,7 @@ function saveCart(cart) {
   try {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   } catch (e) {
-    // Storage unavailable (private mode, etc.) — cart still works in memory.
+    // Storage unavailable (private mode, etc.). Cart still works in memory.
   }
 }
 
@@ -226,7 +226,7 @@ function renderCart() {
   });
 
   const subtotal = cartSubtotalCents();
-  subtotalEl.textContent = cart.length === 0 ? "$0.00" : (subtotal === null ? "—" : formatPriceCents(subtotal));
+  subtotalEl.textContent = cart.length === 0 ? "$0.00" : (subtotal === null ? "TBD" : formatPriceCents(subtotal));
 
   // Checkout is only enabled when every cart item has a real Stripe
   // payment link and a real price. Today that is never true: the only
