@@ -75,12 +75,6 @@ function renderProducts() {
       img.src = product.image;
       img.alt = product.name;
       visual.appendChild(img);
-    } else {
-      const swirl = document.createElement("span");
-      swirl.className = "shop-visual-symbol";
-      swirl.setAttribute("aria-hidden", "true");
-      swirl.textContent = "✳";
-      visual.appendChild(swirl);
     }
     card.appendChild(visual);
 

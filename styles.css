@@ -103,25 +103,11 @@ h2 { margin: 0; font-size: clamp(27px, 3.4vw, 39px); line-height: 1.15; letter-s
 .section-heading .eyebrow { margin-bottom: 9px; }
 .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .project-card { display: block; min-width: 0; }
-.project-visual { height: 170px; position: relative; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+.project-visual { height: 170px; position: relative; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 10px; background: var(--soft); }
 .visual-label { position: absolute; z-index: 2; top: 12px; left: 13px; color: #53616d; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
 .visual-laser { background: #eef2f5; }
-.orbit { position: absolute; width: 190px; height: 85px; top: 56%; left: 50%; border: 1px solid #9aabb9; border-radius: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
-.orbit-two { width: 145px; height: 135px; transform: translate(-50%, -50%) rotate(35deg); }
-.laser-line { position: absolute; top: 54%; left: 10%; width: 80%; height: 1px; background: var(--accent); }
-.visual-symbol { position: absolute; right: 22px; bottom: 4px; color: #526b80; font: 44px Georgia, serif; }
 .visual-circuit { background: #edf1f4; }
-.circuit-board { position: absolute; inset: 40px 25px 20px; border: 1px solid #9aabb9; }
-.chip { position: absolute; top: 25%; left: 40%; width: 55px; height: 55px; border: 2px solid #617c91; background: #dbe3e9; }
-.trace { position: absolute; height: 1px; background: #617c91; }
-.t1 { top: 43%; left: 0; width: 40%; }.t2 { top: 58%; right: 0; width: 39%; }.t3 { top: 0; left: 59%; width: 1px; height: 35%; }
-.node { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.n1 { top: 40%; left: 12%; }.n2 { top: 55%; right: 8%; }.n3 { bottom: 3%; left: 58%; }
 .visual-data { background: #f0f3f5; }
-.chart-bars { position: absolute; left: 28px; right: 28px; bottom: 23px; height: 95px; display: flex; align-items: end; gap: 10px; }
-.chart-bars i { display: block; flex: 1; background: #9aabb9; }
-.chart-bars i:nth-child(1) { height: 30%; }.chart-bars i:nth-child(2) { height: 45%; }.chart-bars i:nth-child(3) { height: 38%; }.chart-bars i:nth-child(4) { height: 61%; }.chart-bars i:nth-child(5) { height: 56%; }.chart-bars i:nth-child(6) { height: 79%; }.chart-bars i:nth-child(7) { height: 100%; background: var(--accent); }
-.chart-baseline { position: absolute; bottom: 23px; left: 23px; right: 23px; height: 1px; background: #8796a2; }
 .card-meta { display: flex; justify-content: space-between; color: #697783; font-size: 10px; font-weight: 700; letter-spacing: .06em; }
 .project-card h3 { margin: 9px 0 6px; font-size: 17px; line-height: 1.35; }
 .project-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
@@ -176,8 +162,8 @@ body.theme-portfolio .hero-copy { color: #43525e; }
 body.theme-portfolio .project-card { border: 1px solid transparent; border-radius: 12px; padding: 10px 10px 14px; transition: border-color .15s, box-shadow .15s; }
 body.theme-portfolio .project-card:hover { border-color: var(--line); box-shadow: 0 6px 20px rgba(24, 36, 48, .07); }
 body.theme-portfolio .detail-card h2 { letter-spacing: -.02em; }
-/* Home hero + closing CTA on the portfolio home get the spacey treatment
-   (dark navy starfield), while the middle of the page stays clean white. */
+/* Home hero + closing CTA on the portfolio home get the dark navy treatment,
+   while the middle of the page stays clean white. */
 body.theme-portfolio .hero {
   background: var(--space-bg);
   color: var(--space-ink);
@@ -185,19 +171,6 @@ body.theme-portfolio .hero {
   padding: 88px max(30px, calc((100vw - var(--max))/2 + 30px)) 72px;
   position: relative;
   overflow: hidden;
-}
-body.theme-portfolio .hero::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    radial-gradient(1.5px 1.5px at 12% 22%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 28% 68%, #cfe6ff 50%, transparent 51%),
-    radial-gradient(2px 2px at 44% 14%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 63% 32%, #ffd166 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 78% 12%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 88% 58%, #cfe6ff 50%, transparent 51%),
-    radial-gradient(1px 1px at 96% 26%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 6% 82%, #fff 50%, transparent 51%),
-    radial-gradient(120px 120px at 88% 18%, rgba(125, 211, 252, .18), transparent 70%);
 }
 body.theme-portfolio .hero > * { position: relative; }
 body.theme-portfolio .hero .eyebrow { color: var(--space-accent); }
@@ -217,12 +190,6 @@ body.theme-portfolio .closing-cta {
   border-bottom: 0;
   position: relative;
   overflow: hidden;
-}
-body.theme-portfolio .closing-cta::before {
-  content: ""; position: absolute; width: 340px; height: 340px; right: -90px; top: -120px;
-  border: 1px solid rgba(125, 211, 252, .35); border-radius: 50%;
-  box-shadow: 0 0 0 42px rgba(125, 211, 252, .05), 0 0 0 84px rgba(125, 211, 252, .04);
-  pointer-events: none;
 }
 body.theme-portfolio .closing-cta .eyebrow { color: var(--space-accent); }
 body.theme-portfolio .closing-cta h2 { color: #fff; }
@@ -289,7 +256,6 @@ body.theme-shop .shop-visual {
   background: conic-gradient(from 40deg, #ff5da2, #ff8a3d, #ffd23f, #00c2a8, #7c5cff, #ff5da2);
 }
 body.theme-shop .shop-visual .visual-label { color: #1c1030; background: rgba(255, 255, 255, .85); padding: 3px 7px; border-radius: 999px; }
-body.theme-shop .shop-visual-symbol { color: #fff; text-shadow: 0 2px 0 rgba(28, 16, 48, .35); }
 body.theme-shop .shop-price { font-family: var(--font-head); font-size: 16px !important; }
 body.theme-shop .shop-controls select, body.theme-shop .shop-controls input,
 body.theme-shop .cart-item input { border: 2px solid #1c1030; border-radius: 10px; }
@@ -318,17 +284,6 @@ body.theme-space .site-header nav a.active { border-bottom-color: var(--space-go
 body.theme-space .site-footer { color: var(--space-muted); }
 body.theme-space .site-footer .wordmark { color: #fff; }
 body.theme-space .page-hero { position: relative; overflow: hidden; }
-body.theme-space .page-hero::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    radial-gradient(1.5px 1.5px at 10% 20%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 25% 70%, #cfe6ff 50%, transparent 51%),
-    radial-gradient(2px 2px at 45% 15%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 65% 35%, #ffd166 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 80% 12%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 90% 60%, #cfe6ff 50%, transparent 51%),
-    radial-gradient(1px 1px at 5% 85%, #fff 50%, transparent 51%);
-}
 body.theme-space .page-hero > * { position: relative; }
 body.theme-space .eyebrow { color: var(--space-accent); }
 body.theme-space .page-hero h1 { color: #fff; }
@@ -350,7 +305,6 @@ body.theme-space a:hover { color: var(--space-gold); }
 .shop-card { display: block; min-width: 0; }
 .shop-visual { height: 170px; position: relative; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--line); background: var(--soft); }
 .shop-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.shop-visual-symbol { position: absolute; right: 22px; bottom: 4px; color: #526b80; font-size: 44px; line-height: 1; }
 .shop-card h3 { margin: 9px 0 6px; font-size: 17px; line-height: 1.35; }
 .shop-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .shop-price { margin-top: 10px !important; color: var(--ink) !important; font-size: 14px !important; font-weight: 700; }
@@ -415,9 +369,6 @@ body.theme-space .kicker { color: var(--space-accent); }
 body.theme-shop .hand-note { color: #c2187a; }
 body.theme-space .hand-note { color: var(--space-gold); }
 body.theme-shop .page-hero .hand-note { margin-top: 22px; }
-/* Hand-drawn squiggles and doodles (inline SVG in the HTML). */
-.squiggle { display: block; width: 220px; max-width: 70%; height: 14px; margin: 20px 0 0; }
-.doodle { display: block; width: 120px; height: 30px; margin: 6px 0 12px; }
 /* Shop hero pill, sentence case. */
 .shop-pill {
   display: inline-block; background: #1c1030; color: #ffd23f;
@@ -432,37 +383,12 @@ body.theme-space .mission-patch { text-transform: none; letter-spacing: .02em; }
 .detail-card { grid-template-columns: 1fr; }
 
 @media (min-width: 761px) {
-  /* Uneven project grid, two columns for four cards. Cards stagger down and tilt differently. */
+  /* Uneven project grid, two columns. */
   .project-grid { grid-template-columns: 1.05fr .95fr; align-items: start; }
   body.theme-portfolio .project-card { position: relative; }
-  body.theme-portfolio .project-card.card-a { transform: rotate(-.9deg); }
-  body.theme-portfolio .project-card.card-b { transform: translateY(30px) rotate(.8deg); }
-  body.theme-portfolio .project-card.card-c { transform: translateY(10px) rotate(-.4deg); }
-  body.theme-portfolio .project-card.card-d { transform: translateY(22px) rotate(.6deg); }
-  body.theme-portfolio .project-card.card-e { transform: translateY(14px) rotate(-.5deg); }
-  /* Tape corners on the project cards. */
-  body.theme-portfolio .project-card::before {
-    content: ""; position: absolute; top: -11px; left: 34px; width: 74px; height: 20px;
-    background: rgba(232, 163, 23, .55); transform: rotate(-3deg); z-index: 2;
-    border-left: 1px dashed rgba(24, 36, 48, .25); border-right: 1px dashed rgba(24, 36, 48, .25);
-  }
-  body.theme-portfolio .project-card.card-b::before { left: auto; right: 30px; background: rgba(15, 95, 110, .35); transform: rotate(2deg); }
-  /* Mixed card heights. */
-  .project-visual.visual-tall { height: 205px; }
-  .project-visual.visual-short { height: 138px; }
-  /* Ultrasonic card visual: sound waves leaving a transducer. */
   .visual-sonic { background: #eef2f5; }
-  .visual-sonic .wave {
-    position: absolute; top: 50%; left: 14px; transform: translateY(-50%);
-    border: 1px solid #9aabb9; border-left: none; border-radius: 0 60px 60px 0;
-  }
-  .visual-sonic .wave.w1 { width: 34px; height: 68px; }
-  .visual-sonic .wave.w2 { width: 58px; height: 116px; }
-  .visual-sonic .wave.w3 { width: 82px; height: 164px; }
-  /* Middle project write-up sits offset, narrower. */
-  .detail-card.detail-offset { margin-left: 64px; max-width: 920px; }
-  /* Shop teaser sits off-center, slightly tilted. */
-  .shop-teaser-card { margin-left: 26px; max-width: 860px; transform: rotate(-.5deg); }
+  /* Shop teaser sits off-center. */
+  .shop-teaser-card { margin-left: 26px; max-width: 860px; }
   /* Intro section: uneven columns, ragged. */
   .intro-grid { grid-template-columns: .7fr 1.3fr; gap: 48px; }
   /* Shop cards tilt at different angles. */
