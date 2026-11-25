@@ -105,6 +105,7 @@ h2 { margin: 0; font-size: clamp(27px, 3.4vw, 39px); line-height: 1.15; letter-s
 .project-card { display: block; min-width: 0; }
 .project-visual { height: 170px; position: relative; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 10px; background: var(--soft); }
 .visual-label { position: absolute; z-index: 2; top: 12px; left: 13px; color: #53616d; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+.project-visual svg { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; }
 .visual-laser { background: #eef2f5; }
 .visual-circuit { background: #edf1f4; }
 .visual-data { background: #f0f3f5; }
